@@ -1,0 +1,7 @@
+[user]
+	name = Sung-Kook Kim
+	email = skkeem@gmail.com
+[core]
+	editor = vim
+[credential]
+	helper = cache

@@ -1,0 +1,29 @@
+language: common-lisp
+sudo: false
+
+addons:
+  postgresql: "9.3"
+
+env:
+  global:
+    - PATH=$HOME/.roswell/bin:$PATH
+    - ROSWELL_INSTALL_DIR=$HOME/.roswell
+  matrix:
+    - LISP=sbcl-bin
+    - LISP=ccl-bin
+    - LISP=clisp
+
+install:
+  # Install Roswell
+  - curl -L https://raw.githubusercontent.com/snmsts/roswell/release/scripts/install-for-ci.sh | sh
+  - ros install prove
+
+before_script:
+  - mysql -uroot -e 'GRANT ALL ON *.* TO nobody@"localhost" IDENTIFIED BY "nobody"'
+  - mysql -e 'CREATE DATABASE `cl-dbi`'
+  - psql -c 'create database "cl-dbi";' -U postgres
+  - psql -c "CREATE USER nobody WITH PASSWORD 'nobody';" -U postgres
+  - git clone -b in-package-cl-user https://github.com/fukamachi/cl-annot ~/lisp/cl-annot
+
+script:
+  - run-prove dbi-test.asd

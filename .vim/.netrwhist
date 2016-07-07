@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/aot'
+let g:netrw_dirhist_2='/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/aot/bak'
+let g:netrw_dirhist_3='/home/skkeem/forgdb/Source/JavaScriptCore'
+let g:netrw_dirhist_4='/home/skkeem/.emacs.d'
+let g:netrw_dirhist_5='/home/skkeem/caveman2/myapp/templates/_errors'
