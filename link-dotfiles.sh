@@ -1,13 +1,13 @@
 #!/bin/sh
 
-ln -s $PWD/.emacs.d ~/
-ln -s $PWD/.emacs ~/
-ln -s $PWD/.sbclrc ~/
-ln -s $PWD/quicklisp ~/
-ln -s $PWD/.vim ~/
-ln -s $PWD/.vimrc ~/
-ln -s $PWD/.tmux.conf ~/
-ln -s $PWD/.gitconfig ~/
-ln -s $PWD/.inputrc ~/
-ln -s $PWD/.zprofile ~/
-ln -s $PWD/.zshrc ~/
+#ln -sf $PWD/.emacs.d ~/
+ln -sf $PWD/.emacs ~/
+ln -sf $PWD/.sbclrc ~/
+ln -sf $PWD/quicklisp ~/
+ln -sf $PWD/.vim ~/
+ln -sf $PWD/.vimrc ~/
+ln -sf $PWD/.tmux.conf ~/
+ln -sf $PWD/.gitconfig ~/
+ln -sf $PWD/.inputrc ~/
+ln -sf $PWD/.zprofile ~/
+ln -sf $PWD/.zshrc ~/
