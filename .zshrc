@@ -90,8 +90,8 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-# For specific projects related.
+# For local settings.
 
-if [ -f ~/.zshrc_proj ]; then
-    . ~/.zshrc_proj
+if [ -f ~/.zshrc.local ]; then
+    . ~/.zshrc.local
 fi
