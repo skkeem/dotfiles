@@ -73,3 +73,9 @@
 (if window-system
   (faces_x)
   (faces_nox))
+
+(add-to-list 'load-path "/home/skkeem/.opam/4.02.3/share/emacs/site-lisp")
+(require 'ocp-indent)
+(require 'merlin)
+
+
