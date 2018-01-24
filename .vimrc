@@ -1,12 +1,4 @@
-"call plug#begin('~/.vim/plugged')
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'bronson/vim-trailing-whitespace'
-"Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
-"Plug 'junegunn/vim-easy-align'
-"call plug#end()
-
-set background=dark
+set background=light
 try
 	colorscheme candy
 catch
@@ -30,6 +22,7 @@ set expandtab                           "tab => spaces
 set shiftwidth=4                        "indenting = 4 spaces 
 set autoindent                          "follow previous line
 filetype plugin indent on               "file type based indentation. should never work along with smart/cindent
+syntax on
 set tags=./tags;                        "ctags
 set statusline+=%F                      "statusline
 set laststatus=2
@@ -48,25 +41,59 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" ConqueTerm. 
-let g:ConqueTerm_CloseOnEnd = 1         "Close Buffers when finished
-let g:ConqueTerm_ReadUnfocused = 1      "Update unfocused buffers
-" ConqueGdb.
-nnoremap <silent> <Leader>Y :ConqueGdbCommand y<CR>
-nnoremap <silent> <Leader>N :ConqueGdbCommand n<CR>
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
 
-" Slimv
-" disable eletric return(no extra newline)
-"let g:paredit_electric_return=0
-" matching parens have same color
-let g:lisp_rainbow=1
-" horizontal split below
-let g:slimv_repl_split=2
-" work in tmux
-let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/.vim/slime/start-swank.lisp"'
+let s:opam_configuration = {}
 
-""""""""""""""""""""""""""""""""
-" webkit specific
-nnoremap <silent> <Leader>g :ConqueGdb /home/skkeem/forgdb/WebKitBuild/Debug/bin/jsc<CR>
-set tags+=/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/tags,/home/skkeem/webkitgtk-2.12.0/Source/WTF/wtf/tags
-cs add /home/skkeem/webkitgtk-2.12.0/Source/cscope.out
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
+
+" ## Merlin, manual
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" ## Syntastic
+execute pathogen#infect()
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ocaml_checkers = ['merlin']
+
+" ## Ocp-indent
+"set rtp^="/home/skkeem/.opam/4.05.0/share/ocp-indent/vim"
+set rtp^="/home/skkeem/.vim/ocp-indent-vim"
+
+" ## vim-slime
+let g:slime_target = "tmux"
+"let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": "2"}
