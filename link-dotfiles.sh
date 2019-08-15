@@ -1,9 +1,5 @@
 #!/bin/sh
 
-#ln -sf $PWD/.emacs.d ~/
-ln -sf $PWD/.emacs ~/
-ln -sf $PWD/.sbclrc ~/
-ln -sf $PWD/quicklisp ~/
 ln -sf $PWD/.vim ~/
 ln -sf $PWD/.vimrc ~/
 ln -sf $PWD/.tmux.conf ~/
