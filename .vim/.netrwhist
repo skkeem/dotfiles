@@ -1,7 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/aot'
-let g:netrw_dirhist_2='/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/aot/bak'
-let g:netrw_dirhist_3='/home/skkeem/forgdb/Source/JavaScriptCore'
-let g:netrw_dirhist_4='/home/skkeem/.emacs.d'
-let g:netrw_dirhist_5='/home/skkeem/caveman2/myapp/templates/_errors'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/skkeem/indra/experimental/mikos_cav2020/xml'
+let g:netrw_dirhist_2='/home/skkeem/mikos/experimental/mikos_cav2020/mikos/test/install'
+let g:netrw_dirhist_3='/home/skkeem/mikos/experimental/mikos_cav2020/mikos/ar/include/ikos/ar/semantic'
+let g:netrw_dirhist_4='/home/skkeem/mm/experimental/mikos_cav2020/mikos/analyzer/include'
+let g:netrw_dirhist_5='/home/skkeem/mm/experimental/mikos_cav2020/mikos/analyzer/include/ikos/analyzer/analysis/value/intraprocedural'
+let g:netrw_dirhist_6='/home/skkeem/mm/experimental/mikos_cav2020/aws/batches'
+let g:netrw_dirhist_7='/home/skkeem/mm/experimental/mikos_cav2020/aws/results-ikos/ossint-0/bench.2020-01-15_0521.files/interval-ikos'
+let g:netrw_dirhist_8='/home/skkeem/indra/latex/memory_efficient_ai/scripts'
+let g:netrw_dirhist_9='/home/skkeem/google'
