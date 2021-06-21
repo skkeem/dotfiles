@@ -1,1 +1,0 @@
-dists/quicklisp/software/http-body-20150407-git/http-body-test.asd

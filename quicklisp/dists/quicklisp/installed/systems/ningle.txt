@@ -1,1 +1,0 @@
-dists/quicklisp/software/ningle-20160318-git/ningle.asd
