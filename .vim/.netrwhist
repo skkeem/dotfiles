@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/aot'
-let g:netrw_dirhist_2='/home/skkeem/webkitgtk-2.12.0/Source/JavaScriptCore/aot/bak'
-let g:netrw_dirhist_3='/home/skkeem/forgdb/Source/JavaScriptCore'
-let g:netrw_dirhist_4='/home/skkeem/.emacs.d'
-let g:netrw_dirhist_5='/home/skkeem/caveman2/myapp/templates/_errors'
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/skkeem/indra-pmfc/latex/parallel_memory_efficient_fc/approach'
+let g:netrw_dirhist_6='/Users/skkeem/.ssh'
+let g:netrw_dirhist_5='/Users/skkeem/ecs260/docker/hw2'
+let g:netrw_dirhist_4='/Users/skkeem/ecs260/docker'
+let g:netrw_dirhist_3='/Users/skkeem/vagrant_project/example/get_sign'
+let g:netrw_dirhist_2='/Users/skkeem/ecs140a-redux/w21/grading-script'
+let g:netrw_dirhist_1='/Users/skkeem/otto2/Assets/AI.Planner'
